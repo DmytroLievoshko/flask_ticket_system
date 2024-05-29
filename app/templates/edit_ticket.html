@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Edit Ticket</h2>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.note.label }}<br>
+        {{ form.note(size=32) }}<br>
+        {% for error in form.note.errors %}
+        <span style="color: red;">{{ error }}</span><br>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.status.label }}<br>
+        {{ form.status }}<br>
+        {% for error in form.status.errors %}
+        <span style="color: red;">{{ error }}</span><br>
+        {% endfor %}
+    </p>
+    <p><input type="submit" value="Update Ticket"></p>
+</form>
+{% endblock %}

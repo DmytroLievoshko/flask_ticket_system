@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Tickets</h2>
+<ul>
+    {% for ticket in tickets %}
+    <li>{{ ticket.note }} - {{ ticket.status.value }} - <a
+            href="{{ url_for('main.edit_ticket', ticket_id=ticket.id) }}">Edit</a></li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('main.create_ticket') }}">Create New Ticket</a>
+{% endblock %}

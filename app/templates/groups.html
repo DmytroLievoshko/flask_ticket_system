@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Groups</h2>
+<ul>
+    {% for group in groups %}
+    {% if current_user.group_id == 1 %}
+    <li>{{ group.name }} - <a
+            href="{{ url_for('main.edit_create_group', group_id=group.id) }}">Edit</a></li>
+    {% else %}
+    <li>{{ group.name }}</li>
+    {% endif %}
+    {% endfor %}
+</ul>
+{% if current_user.group_id == 1 %}
+<a href="{{ url_for('main.edit_create_group', group_id=0) }}">Create New Group</a>
+{% endif %}
+{% endblock %}

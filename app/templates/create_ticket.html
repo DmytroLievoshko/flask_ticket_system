@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Create Ticket</h2>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.note.label }}<br>
+        {{ form.note(size=32) }}<br>
+        {% for error in form.note.errors %}
+        <span style="color: red;">{{ error }}</span><br>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.assigned_user_id.label }}<br>
+        {{ form.assigned_user_id }}<br>
+        {% for error in form.assigned_user_id.errors %}
+        <span style="color: red;">{{ error }}</span><br>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.assigned_group_id.label }}<br>
+        {{ form.assigned_group_id }}<br>
+        {% for error in form.assigned_group_id.errors %}
+        <span style="color: red;">{{ error }}</span><br>
+        {% endfor %}
+    </p>
+    <p><input type="submit" value="Create Ticket"></p>
+</form>
+{% endblock %}
